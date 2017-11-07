@@ -4,4 +4,5 @@ describe('BMI_UI - index.html', function() {
       loadFixtures('index.html');
       $.holdReady(false);
     });
+
 });
