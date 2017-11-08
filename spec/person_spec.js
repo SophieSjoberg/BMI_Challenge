@@ -22,6 +22,6 @@ describe("Person", function() {
 
   it("should have a BMI Message", function() {
     person.calculate_bmi();
-    expect(person.bmiMessage).toEqual('Overweight');
+    expect(person.bmiMessage).toEqual('Healthy');
   });
 });
