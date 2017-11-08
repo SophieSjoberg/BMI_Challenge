@@ -1,10 +1,10 @@
-describe("BMICalculator", function() {
+describe("BMI_imperial_Calculator", function() {
   var calculator;
   var person;
 
   beforeEach(function() {
     person = new Person({
-      weight: 190,
+      weight: 170,
       height: 70
     });
     calculator = new BMICalculator();
@@ -12,7 +12,7 @@ describe("BMICalculator", function() {
 
   it("calculates BMI for a person using imperial method", function() {
     calculator.imperial_bmi(person);
-    expect(person.bmiValue).toEqual(27.26);
+    expect(person.bmiValue).toEqual(24.39);
   });
 
 });
