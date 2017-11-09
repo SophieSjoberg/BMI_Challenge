@@ -16,8 +16,8 @@
       <input type="button" id="calculate" value="Calculate">
 
       <select id="mySelect">
-        <option value="Metric Calculator">Metric System</option>
-        <option value="Imperial Calculator">Imperial System</option>
+        <option value="metric">Metric System</option>
+        <option value="imperial">Imperial System</option>
       </select>
 
 
@@ -31,10 +31,10 @@
           var h = parseFloat($('#height').val());
           var person = new Person({ weight: w, height: h });
 
-          if ($("#mySelect").val() == "Metric Calculator") {
+          if ($("#mySelect").val() == "metric") {
             person.calculate_bmi_metric();
             } else {
-              
+
             person.calculate_bmi_imperial();
             }
           $('#display_value').html('Your BMI is ' + person.bmiValue);
