@@ -14,29 +14,36 @@
       <input type="text" id="weight" placeholder="Weight">
       <input type="text" id="height" placeholder="Height">
       <input type="button" id="calculate" value="Calculate">
-      <select id="mySelect" onchange="selector()">
+
+      <select id="mySelect">
         <option value="Metric Calculator">Metric System</option>
         <option value="Imperial Calculator">Imperial System</option>
       </select>
-      <form>
-    </form>
-    <div>
+
+
       <span id="display_value"></span>
       <span id="display_message"></span>
 
-    </div>
-
-    <script type="text/javascript">
+      <script type="text/javascript">
       $(document).ready(function() {
         $('#calculate').click(function() {
-      var w = parseFloat($('#weight').val() );
-      var h = parseFloat($('#height').val() );
-      var person = new Person({weight: w, height: h});
-      person.calculate_bmi();
-      $('#display_value').html('Your BMI is ' + person.bmiValue);
-      $('#display_message').html('and you are '+ person.bmiMessage);
+          var w = parseFloat($('#weight').val());
+          var h = parseFloat($('#height').val());
+          var person = new Person({ weight: w, height: h });
+
+          if ($("#mySelect").val() == "Metric Calculator") {
+            person.calculate_bmi_metric();
+            } else {
+              
+            person.calculate_bmi_imperial();
+            }
+          $('#display_value').html('Your BMI is ' + person.bmiValue);
+          $('#display_message').html('and you are ' + person.bmiMessage);
+          });
       });
-    });
+
+
+
     </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-describe("BMI_imperial_Calculator", function() {
+describe("BMIImperialCalculator", function() {
   var calculator;
   var person;
 
@@ -7,6 +7,7 @@ describe("BMI_imperial_Calculator", function() {
       weight: 170,
       height: 70
     });
+    //calculator = new BMIImperialCalculator();
     calculator = new BMICalculator();
   });
 

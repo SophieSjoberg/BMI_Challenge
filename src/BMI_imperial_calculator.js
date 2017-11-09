@@ -1,5 +1,5 @@
-function BMI_imperial_Calculator(weight, height) {
+function BMIImperialCalculator(weight, height) {
 
-bmiImperial(weight / (height * height) * 703);
+//bmiImperial(weight / (height * height) * 703);
 
 }
