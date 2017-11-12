@@ -7,7 +7,8 @@ describe("BMIImperialCalculator", function() {
       weight: 170,
       height: 70
     });
-    //calculator = new BMIImperialCalculator();
+
+
     calculator = new BMICalculator();
   });
 

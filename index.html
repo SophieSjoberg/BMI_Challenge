@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title> BMI Calculator </title>
+  <title> The GoT Calculator </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -16,15 +16,16 @@
 
 <body>
 
-  <div class="container">
-    <div class="jumbotron">
-      <h1 class="display-3">BMI Calculator</h1>
-      <p class="lead">Welcome to your new life</p>
-      <hr class="my-4">
-      <p>The BMI Calculator does NOT messaure happiness, however this is a good start to the beginning of your new life! </p>
-      <p class="lead">
-      </p>
 
+  <div class="container">
+
+    <div class="jumbotron">
+      <div class="p-3 mb-2 bg-info text-white">
+        <h1 class="display-3">GoT Calculator</h1>
+        <p class="lead">Which Game of Thrones character are you?</p>
+        <hr class="my-4">
+        <p> Submit your height and weight and see what Thrones character you are! </p>
+      </div>
     </div>
 
     <form id="calculate">
@@ -67,7 +68,7 @@
 
       <div class="form-group row">
         <div class="col-auto">
-          <button type="submit" class="btn btn-danger">Calculate</button>
+          <button type="submit" class="btn btn-outline-danger">Calculate</button>
         </div>
       </div>
     </form>
@@ -76,15 +77,28 @@
     <span id="display_message"></span>
   </div>
 
-  <script type="text/javascript">   /* Needs some work on x-mas break!! 
-    function poundsToKgs(pounds) {
-      return pounds / 2.2046;
-    }
+  <div class="container">
+    <div class="col-auto">
+      <div>
+        <p class="text-secondary">
+          Disclaimer: Don't be discouraged if you didn't get to be your favorite character. Valar Morghulis.
+          <!--Disclaimer: This test is not a 100 % accurate. To be Healthy you don't need a perfect BMI score.. You need Laughter, Love, Good Food, Movement, Challenges and Game of Thrones.-->
+        </p>
+      </div>
+    </div>
+  </div>
 
-    function kgsToPounds(kgs) {
-      return kgs * 2.2046;
-    }
-*/
+
+  <script type="text/javascript">
+    /* Needs some work on x-mas break!!
+                function poundsToKgs(pounds) {
+                  return pounds / 2.2046;
+                }
+
+                function kgsToPounds(kgs) {
+                  return kgs * 2.2046;
+                }
+            */
     $(document).ready(function() {
       $('#mySelect').change(function() {
         var weight = parseInt($('#weight').val(), 10);
@@ -124,7 +138,6 @@
         $('#display_message').html('and you are ' + person.bmiMessage);
       });
     });
-
   </script>
 
 

@@ -1,6 +1,4 @@
-
-function BMICalculator(weight, height) {
-}
+function BMICalculator(weight, height) {}
 
 BMICalculator.prototype.metric_bmi = function(obj) {
   var weight = obj.weight;
@@ -22,18 +20,18 @@ BMICalculator.prototype.imperial_bmi = function(obj) {
   }
 };
 
-  function setBMIMessage(obj) {
+function setBMIMessage(obj) {
   if (obj.bmiValue < 18.5) {
-    obj.bmiMessage = "Underweight";
+    obj.bmiMessage = "a Shadow";
   }
   if (obj.bmiValue > 18.5 && obj.bmiValue < 25) {
-    obj.bmiMessage = "Healthy";
+    obj.bmiMessage = "Eddard Stark";
   }
   if (obj.bmiValue > 25 && obj.bmiValue < 30) {
-    obj.bmiMessage = "Overweight";
+    obj.bmiMessage = "Samwell Tarly";
   }
   if (obj.bmiValue > 30) {
-    obj.bmiMessage = "Obese";
+    obj.bmiMessage = "Hodor";
   }
 
 }
