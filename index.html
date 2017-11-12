@@ -15,71 +15,119 @@
 </head>
 
 <body>
-  <div class="jumbotron">
-    <h1 class="display-3">BMI Calculator</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
-  </div>
 
-  <form id="calculate">
-
-    <div class="form-row align-items-center">
-
-      <div class="col-auto">
-
-        <label for="weight">Weight</label>
-        <input type="text" class="form-control" id="weight" placeholder="Enter weight">
-      </div>
-      <div class="form-row align-items-center">
-        <div class="col-auto">
-          <label for="height">Height</label>
-          <input type="text" class="form-control" id="height" placeholder="Enter Height">
-        </div>
-      </div>
-      <select id="mySelect">
-        <option value="metric">Metric System</option>
-        <option value="imperial">Imperial System</option>
-      </select>
-      <button type="submit" class="btn btn-danger">Calculate</button>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-3">BMI Calculator</h1>
+      <p class="lead">Welcome to your new life</p>
+      <hr class="my-4">
+      <p>The BMI Calculator does NOT messaure happiness, however this is a good start to the beginning of your new life! </p>
+      <p class="lead">
+      </p>
 
     </div>
-  </form>
 
-  <span id="display_value"></span>
-  <span id="display_message"></span>
+    <form id="calculate">
+      <div id="metric-input" class="form-group row">
+        <div class="col-auto">
+          <label for="weight-in-kgs">Weight in kgs</label>
+          <input type="text" class="form-control" id="weight-in-kgs" placeholder="Enter weight in kgs">
+        </div>
+        <div class="col-auto">
+          <label for="height-in-cm">Height in cm</label>
+          <input type="text" class="form-control" id="height-in-cm" placeholder="Enter Height in cm">
+        </div>
+      </div>
 
-  <script type="text/javascript">
+      <div id="imperial-input" class="form-group row">
+        <div class="col-auto">
+          <label for="weight-in-pounds">Weight</label>
+          <input type="text" class="form-control" id="weight-in-pounds" placeholder="Enter weight">
+        </div>
+
+        <div class="col-auto">
+          <label for="height-in-feet">Height in feet</label>
+          <input type="text" class="form-control" id="height-in-feet" placeholder="Enter Height in feet">
+        </div>
+
+        <div class="col-auto">
+          <label for="height-in-inches">Height in inches</label>
+          <input type="text" class="form-control" id="height-in-inches" placeholder="Enter Height in inches">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-auto">
+          <select class="form-control" id="mySelect">
+            <option value="metric">Metric System</option>
+            <option value="imperial">Imperial System</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-auto">
+          <button type="submit" class="btn btn-danger">Calculate</button>
+        </div>
+      </div>
+    </form>
+
+    <span id="display_value"></span>
+    <span id="display_message"></span>
+  </div>
+
+  <script type="text/javascript">   /* Needs some work on x-mas break!! 
+    function poundsToKgs(pounds) {
+      return pounds / 2.2046;
+    }
+
+    function kgsToPounds(kgs) {
+      return kgs * 2.2046;
+    }
+*/
     $(document).ready(function() {
       $('#mySelect').change(function() {
-        if ($(this).val() == 'imperial') {
+        var weight = parseInt($('#weight').val(), 10);
 
+        if ($(this).val() == 'metric') {
+          $('#metric-input').show();
+          $('#imperial-input').hide();
+        } else {
+          $('#metric-input').hide();
+          $('#imperial-input').show();
         }
-      })
+      }).change();
 
       $('#calculate').submit(function(event) {
         event.preventDefault();
-        var w = parseFloat($('#weight').val());
-        var h = parseFloat($('#height').val());
-        var person = new Person({
-          weight: w,
-          height: h
-        });
 
         if ($("#mySelect").val() == "metric") {
+          var w = parseFloat($('#weight-in-kgs').val());
+          var h = parseFloat($('#height-in-cm').val());
+          var person = new Person({
+            weight: w,
+            height: h,
+          });
           person.calculate_bmi_metric();
         } else {
-
+          var w = parseFloat($('#weight-in-pounds').val());
+          var feet = parseFloat($('#height-in-feet').val());
+          var inches = parseFloat($('#height-in-inches').val());
+          var person = new Person({
+            weight: w,
+            height: feet * 12 + inches,
+          });
           person.calculate_bmi_imperial();
         }
+
         $('#display_value').html('Your BMI is ' + person.bmiValue);
         $('#display_message').html('and you are ' + person.bmiMessage);
       });
     });
+
   </script>
+
+
 </body>
 
 </html>
